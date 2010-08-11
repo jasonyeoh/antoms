@@ -3,7 +3,9 @@ package com.ant.oms.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class OrderStatus implements Serializable{
@@ -16,12 +18,14 @@ public class OrderStatus implements Serializable{
 	private Date statusDate;
 	private String status;
 	private String description;
+	@Id
 	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
 	}
+	@Column(name="parent_order")
 	public Order getOrder() {
 		return order;
 	}

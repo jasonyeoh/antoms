@@ -2,6 +2,8 @@ package com.ant.oms.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Id;
+
 import org.hibernate.annotations.Entity;
 
 @Entity
@@ -18,6 +20,7 @@ public class Address implements Serializable{
 	private String state;
 	private String country;
 	private String zip;
+	@Id
 	public long getId() {
 		return id;
 	}

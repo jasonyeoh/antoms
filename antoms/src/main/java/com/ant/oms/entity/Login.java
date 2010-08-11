@@ -3,8 +3,10 @@ package com.ant.oms.entity;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 @Entity
 public class Login implements Serializable{
 	/**
@@ -14,9 +16,16 @@ public class Login implements Serializable{
 	private long id;
 	private String loginId;
 	private String password;
-	@ManyToMany
-	private Set<Role> roles;
+	private Set<LoginRole> roles;
 	private boolean active;
+	@Id
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	@Column(unique=true, length=32)
 	public String getLoginId() {
 		return loginId;
 	}
@@ -29,10 +38,11 @@ public class Login implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Set<Role> getRoles() {
+	@OneToMany(mappedBy="login")
+	public Set<LoginRole> getRoles() {
 		return roles;
 	}
-	public void setRoles(Set<Role> roles) {
+	public void setRoles(Set<LoginRole> roles) {
 		this.roles = roles;
 	}
 	public boolean isActive() {
@@ -40,12 +50,5 @@ public class Login implements Serializable{
 	}
 	public void setActive(boolean active) {
 		this.active = active;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public long getId() {
-		return id;
-	}
-	
+	}	
 }

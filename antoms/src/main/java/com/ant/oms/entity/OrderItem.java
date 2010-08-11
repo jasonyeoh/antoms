@@ -3,6 +3,7 @@ package com.ant.oms.entity;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 @Entity
 public class OrderItem  implements Serializable{
 	/**
@@ -10,17 +11,24 @@ public class OrderItem  implements Serializable{
 	 */
 	private static final long serialVersionUID = 8907475819564141091L;
 	private long id;
-	private Order order;
+	private Order parentOrder;
 	private int itemNumber;
-	private float quantity;
+	private double quantity;
 	private CatalogEntry item;
 	private String customerComment;
 	private String comment;
-	public Order getOrder() {
-		return order;
+	@Id
+	public long getId() {
+		return id;
 	}
-	public void setOrder(Order order) {
-		this.order = order;
+	public void setId(long id) {
+		this.id = id;
+	}
+	public Order getParentOrder() {
+		return parentOrder;
+	}
+	public void setParentOrder(Order order) {
+		this.parentOrder = order;
 	}
 	public int getItemNumber() {
 		return itemNumber;
@@ -28,10 +36,10 @@ public class OrderItem  implements Serializable{
 	public void setItemNumber(int itemNumber) {
 		this.itemNumber = itemNumber;
 	}
-	public float getQuantity() {
+	public double getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(float quantity) {
+	public void setQuantity(double quantity) {
 		this.quantity = quantity;
 	}
 	public CatalogEntry getItem() {
@@ -51,11 +59,5 @@ public class OrderItem  implements Serializable{
 	}
 	public void setComment(String comment) {
 		this.comment = comment;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public long getId() {
-		return id;
 	}
 }

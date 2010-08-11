@@ -3,6 +3,7 @@ package com.ant.oms.entity;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Inventory implements Serializable{
@@ -13,6 +14,7 @@ public class Inventory implements Serializable{
 	private long id;
 	private CatalogEntry item;
 	private int quantity;
+	@Id
 	public long getId() {
 		return id;
 	}

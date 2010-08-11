@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Role implements Serializable {
@@ -15,8 +16,8 @@ public class Role implements Serializable {
 	private long id;
 	private String name;
 	private String description;
-	@ManyToMany
-	private Set<Login> logins;
+	private Set<LoginRole> logins;
+	@Id
 	public long getId() {
 		return id;
 	}
@@ -35,10 +36,11 @@ public class Role implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Set<Login> getLogins() {
+	@OneToMany(mappedBy="role")
+	public Set<LoginRole> getLogins() {
 		return logins;
 	}
-	public void setLogins(Set<Login> logins) {
+	public void setLogins(Set<LoginRole> logins) {
 		this.logins = logins;
 	}
 	
