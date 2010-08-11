@@ -3,6 +3,7 @@ package com.ant.oms.entity;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Customer implements Serializable{
@@ -23,6 +24,7 @@ public class Customer implements Serializable{
 	private String officePhone;
 	private String officeFax;
 	private Login login; 
+	@Id
 	public long getId() {
 		return id;
 	}

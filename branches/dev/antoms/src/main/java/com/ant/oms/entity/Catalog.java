@@ -4,8 +4,11 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
+@Entity
 public class Catalog implements Serializable{
 	/**
 	 * 
@@ -17,8 +20,14 @@ public class Catalog implements Serializable{
 	private boolean active;
 	private String description;
 	private Image coverPage;
-	@OneToMany(mappedBy="catalog")
 	private Set<CatalogEntry> entries;
+	@Id
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
@@ -37,6 +46,7 @@ public class Catalog implements Serializable{
 	public void setActive(boolean active) {
 		this.active = active;
 	}
+	@Column(name="catalog_desc")
 	public String getDescription() {
 		return description;
 	}
@@ -49,17 +59,12 @@ public class Catalog implements Serializable{
 	public void setCoverPage(Image coverPage) {
 		this.coverPage = coverPage;
 	}
+	@OneToMany(mappedBy="catalog")
 	public Set<CatalogEntry> getEntries() {
 		return entries;
 	}
 	public void setEntries(Set<CatalogEntry> entries) {
 		this.entries = entries;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public long getId() {
-		return id;
 	}
 	
 	

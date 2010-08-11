@@ -4,9 +4,15 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
+import javax.persistence.Table;
+@Entity
+@Table(name="order_master")
 public class Order implements Serializable{
 	/**
 	 * 
@@ -19,12 +25,11 @@ public class Order implements Serializable{
 	private Date deliveryOn;
 	private String customerComment;
 	private String comment;
-	@OneToMany(mappedBy="order", fetch=FetchType.LAZY)
 	private Set<OrderItem> items;
 	private float totalAmount;
 	private Status status;
 
-	
+	@Id
 	public long getId() {
 		return id;
 	}
@@ -37,6 +42,7 @@ public class Order implements Serializable{
 	public void setPlaceOn(Date placeOn) {
 		this.placeOn = placeOn;
 	}
+	@ManyToOne(targetEntity=Customer.class)
 	public Customer getPlacedBy() {
 		return placedBy;
 	}
@@ -61,6 +67,7 @@ public class Order implements Serializable{
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
+	@OneToMany(mappedBy="parentOrder", fetch=FetchType.LAZY)
 	public Set<OrderItem> getItems() {
 		return items;
 	}

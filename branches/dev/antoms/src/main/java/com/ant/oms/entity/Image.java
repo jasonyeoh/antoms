@@ -3,6 +3,7 @@ package com.ant.oms.entity;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Image implements Serializable {
@@ -15,6 +16,7 @@ public class Image implements Serializable {
 	private String name;
 	private int imageSize;
 	private byte [] data;
+	@Id
 	public long getId() {
 		return id;
 	}

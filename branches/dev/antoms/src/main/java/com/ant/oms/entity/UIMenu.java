@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 
@@ -16,9 +17,10 @@ public class UIMenu implements Serializable{
 	private static final long serialVersionUID = 488978528910789954L;
 	private long id;
 	private String name;
-	private String parentName;
+	private UIMenu parent;
 	private String url;
 	private List<UIMenu> childern;
+	@Id
 	public long getId() {
 		return id;
 	}
@@ -31,11 +33,11 @@ public class UIMenu implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getParentName() {
-		return parentName;
+	public UIMenu getParent() {
+		return parent;
 	}
-	public void setParentName(String parentName) {
-		this.parentName = parentName;
+	public void setParent(UIMenu parent) {
+		this.parent = parent;
 	}
 	public String getUrl() {
 		return url;
@@ -43,7 +45,7 @@ public class UIMenu implements Serializable{
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	@OneToMany(mappedBy="parentName", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="parent", fetch=FetchType.LAZY)
 	public List<UIMenu> getChildern() {
 		return childern;
 	}

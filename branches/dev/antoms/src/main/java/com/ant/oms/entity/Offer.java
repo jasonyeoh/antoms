@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Offer implements Serializable{
@@ -18,6 +19,13 @@ public class Offer implements Serializable{
 	private String description;
 	private float discountRate;
 	private String processor;
+	@Id
+	public long getId() {
+		return id;
+	}  
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getOfferName() {
 		return offerName;
 	}
@@ -54,11 +62,5 @@ public class Offer implements Serializable{
 	public void setProcessor(String processor) {
 		this.processor = processor;
 	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public long getId() {
-		return id;
-	}  
 
 }

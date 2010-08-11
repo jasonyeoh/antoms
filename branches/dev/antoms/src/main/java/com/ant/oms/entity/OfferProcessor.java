@@ -3,6 +3,9 @@ package com.ant.oms.entity;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import com.ant.oms.util.OfferProcessorEngine;
 
 /**
  * This class represents an offer processor. An offer processor will be attached to an {@link #Offer}.
@@ -35,7 +38,7 @@ public class OfferProcessor implements Serializable {
 	private String name;
 	private String processorData;
 	private Type processorType;
-	
+	@Id
 	public long getId() {
 		return id;
 	}
