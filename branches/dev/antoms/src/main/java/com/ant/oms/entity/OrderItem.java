@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 @Entity
-public class OrderItem  implements Serializable{
+public class OrderItem  implements Serializable, BaseEntity{
 	/**
 	 * 
 	 */

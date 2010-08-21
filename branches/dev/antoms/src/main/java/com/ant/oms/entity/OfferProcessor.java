@@ -28,7 +28,7 @@ import com.ant.oms.util.OfferProcessorEngine;
  *
  */
 @Entity
-public class OfferProcessor implements Serializable {
+public class OfferProcessor implements Serializable, BaseEntity {
 	/**
 	 * 
 	 */

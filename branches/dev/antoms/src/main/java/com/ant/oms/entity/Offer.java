@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Offer implements Serializable{
+public class Offer implements Serializable, BaseEntity{
 	/**
 	 * 
 	 */

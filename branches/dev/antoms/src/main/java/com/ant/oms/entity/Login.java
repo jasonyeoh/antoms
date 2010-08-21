@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 @Entity
-public class Login implements Serializable{
+public class Login implements Serializable, BaseEntity{
 	/**
 	 * 
 	 */
