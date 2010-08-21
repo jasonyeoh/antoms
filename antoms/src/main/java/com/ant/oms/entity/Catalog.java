@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 @Entity
-public class Catalog implements Serializable{
+public class Catalog implements Serializable, BaseEntity{
 	/**
 	 * 
 	 */

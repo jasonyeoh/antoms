@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 
 
 @Entity
-public class UIMenu implements Serializable{
+public class UIMenu implements Serializable, BaseEntity{
 	/**
 	 * 
 	 */

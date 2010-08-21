@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Role implements Serializable {
+public class Role implements Serializable , BaseEntity{
 	/**
 	 * 
 	 */

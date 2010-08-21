@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name="order_master")
-public class Order implements Serializable{
+public class Order implements Serializable, BaseEntity{
 	/**
 	 * 
 	 */

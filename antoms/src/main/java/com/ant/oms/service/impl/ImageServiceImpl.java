@@ -26,11 +26,9 @@ public class ImageServiceImpl implements ImageService{
 			image.setImageSize((int) img.length());
 			dao.save(image);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return image;

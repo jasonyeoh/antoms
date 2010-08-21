@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class OrderStatus implements Serializable{
+public class OrderStatus implements Serializable, BaseEntity {
 	/**
 	 * 
 	 */

@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Inventory implements Serializable{
+public class Inventory implements Serializable, BaseEntity{
 	/**
 	 * 
 	 */

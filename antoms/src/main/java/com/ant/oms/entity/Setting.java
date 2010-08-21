@@ -7,19 +7,19 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-@Entity
-@Table(uniqueConstraints={@UniqueConstraint(columnNames={"id","choice_id","choice_key", "locale"})})
-public class UIChoice implements Serializable, BaseEntity {
 
+@Entity
+@Table(uniqueConstraints=@UniqueConstraint(columnNames={"setting_key","setting_ns"}))
+public class Setting implements Serializable, BaseEntity{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -663837231505178445L;
+	private static final long serialVersionUID = 673189846491704082L;
 	private long id;
 	private String key;
 	private String value;
-	private String locale;
-	private String choiceId;
+	private String namespace;
+	private String description;
 	@Id
 	public long getId() {
 		return id;
@@ -27,7 +27,7 @@ public class UIChoice implements Serializable, BaseEntity {
 	public void setId(long id) {
 		this.id = id;
 	}
-	@Column(name="choice_key")
+	@Column(name="setting_key")
 	public String getKey() {
 		return key;
 	}
@@ -40,16 +40,18 @@ public class UIChoice implements Serializable, BaseEntity {
 	public void setValue(String value) {
 		this.value = value;
 	}
-	public String getLocale() {
-		return locale;
+	@Column(name="setting_ns")
+	public String getNamespace() {
+		return namespace;
 	}
-	public void setLocale(String locale) {
-		this.locale = locale;
+	public void setNamespace(String namespace) {
+		this.namespace = namespace;
 	}
-	public String getChoiceId() {
-		return choiceId;
+	public String getDescription() {
+		return description;
 	}
-	public void setChoiceId(String choiceId) {
-		this.choiceId = choiceId;
+	public void setDescription(String description) {
+		this.description = description;
 	}
+	
 }
