@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 @Entity
 public class OrderItem  implements Serializable, BaseEntity{
 	/**
@@ -24,6 +25,7 @@ public class OrderItem  implements Serializable, BaseEntity{
 	public void setId(long id) {
 		this.id = id;
 	}
+	@ManyToOne(optional=false)
 	public Order getParentOrder() {
 		return parentOrder;
 	}
@@ -42,6 +44,7 @@ public class OrderItem  implements Serializable, BaseEntity{
 	public void setQuantity(double quantity) {
 		this.quantity = quantity;
 	}
+	@ManyToOne(optional=false)
 	public CatalogEntry getItem() {
 		return item;
 	}

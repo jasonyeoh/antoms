@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Inventory implements Serializable, BaseEntity{
@@ -21,6 +22,7 @@ public class Inventory implements Serializable, BaseEntity{
 	public void setId(long id) {
 		this.id = id;
 	}
+	@OneToOne(optional=true)
 	public CatalogEntry getItem() {
 		return item;
 	}

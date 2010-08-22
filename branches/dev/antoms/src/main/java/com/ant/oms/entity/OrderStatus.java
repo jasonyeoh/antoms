@@ -3,9 +3,9 @@ package com.ant.oms.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class OrderStatus implements Serializable, BaseEntity {
@@ -25,7 +25,8 @@ public class OrderStatus implements Serializable, BaseEntity {
 	public void setId(long id) {
 		this.id = id;
 	}
-	@Column(name="parent_order")
+	
+	@ManyToOne(optional=false)
 	public Order getOrder() {
 		return order;
 	}

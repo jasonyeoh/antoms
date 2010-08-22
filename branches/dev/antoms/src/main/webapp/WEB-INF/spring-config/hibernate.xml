@@ -49,6 +49,7 @@
 				<value>com.ant.oms.entity.Role</value>
 				<value>com.ant.oms.entity.UIChoice</value>
 				<value>com.ant.oms.entity.UIMenu</value>
+				<value>com.ant.oms.entity.Setting</value>
 			</list>
 		</property>
 	</bean>

@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name="order_master")
@@ -23,6 +24,8 @@ public class Order implements Serializable, BaseEntity{
 	private Customer placedBy;
 	private Date deliveryOn;
 	private String customerComment;
+	private String deliveryLocation;
+	private Address deliveryAddress;
 	private String comment;
 	private Set<OrderItem> items;
 	private float totalAmount;
@@ -84,5 +87,18 @@ public class Order implements Serializable, BaseEntity{
 	}
 	public Status getStatus() {
 		return status;
+	}
+	public String getDeliveryLocation() {
+		return deliveryLocation;
+	}
+	public void setDeliveryLocation(String deliveryLocation) {
+		this.deliveryLocation = deliveryLocation;
+	}
+	@OneToOne(optional=true)
+	public Address getDeliveryAddress() {
+		return deliveryAddress;
+	}
+	public void setDeliveryAddress(Address deliveryAddress) {
+		this.deliveryAddress = deliveryAddress;
 	}
 }

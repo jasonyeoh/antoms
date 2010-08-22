@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Customer implements Serializable, BaseEntity{
@@ -55,12 +56,14 @@ public class Customer implements Serializable, BaseEntity{
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	@OneToOne(optional=true)
 	public Address getHome() {
 		return home;
 	}
 	public void setHome(Address home) {
 		this.home = home;
 	}
+	@OneToOne(optional=true)
 	public Address getOffice() {
 		return office;
 	}
@@ -91,11 +94,12 @@ public class Customer implements Serializable, BaseEntity{
 	public void setOfficeFax(String officeFax) {
 		this.officeFax = officeFax;
 	}
-	public void setLogin(Login login) {
-		this.login = login;
-	}
+	@OneToOne(optional=true)
 	public Login getLogin() {
 		return login;
+	}
+	public void setLogin(Login login) {
+		this.login = login;
 	}
 	public void setCellPhone(String cellPhone) {
 		this.cellPhone = cellPhone;

@@ -13,7 +13,7 @@ import com.ant.oms.entity.UIChoice;
 import com.ant.oms.entity.UIMenu;
 import com.ant.oms.service.UIService;
 
-public class UIServiceImpl implements UIService {
+public class UIServiceImpl extends BaseServiceImpl implements UIService {
 	@Autowired
 	UIChoiceDAO choiceDao;
 	@Autowired
@@ -51,7 +51,27 @@ public class UIServiceImpl implements UIService {
 	}
 
 	@Override
-	public void saveMenu(String id, String name, Map<String, String> items) {
+	public void saveMenu(String id, String name, String url, Map<String, String> items) {
+		UIMenu menu = new UIMenu();
+		menu.setDisplayName(name);
+		menu.setUrl(url);
+		menu.setParent(null);
+		menu.setMenuId(id.toLowerCase());
+		menuDao.save(menu);
+		List<UIMenu> entries = new ArrayList<UIMenu>();
+		for(String key:items.keySet()){
+			UIMenu menuEntry = new UIMenu();
+			menuEntry.setMenuId(String.format("%s.%s",id.toLowerCase(), makeId(key)));
+			menuEntry.setDisplayName(key);
+			menuEntry.setUrl(items.get(key));
+			menuEntry.setParent(menu);
+			entries.add(menuEntry);
+		}
+		menuDao.saveMenu(menu, entries);
+	}
+
+	private String makeId(String key) {
+		return key.replace(' ', '_').toLowerCase();
 	}
 
 	@Override

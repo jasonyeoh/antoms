@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 
@@ -16,7 +17,8 @@ public class UIMenu implements Serializable, BaseEntity{
 	 */
 	private static final long serialVersionUID = 488978528910789954L;
 	private long id;
-	private String name;
+	private String menuId;
+	private String displayName;
 	private UIMenu parent;
 	private String url;
 	private List<UIMenu> childern;
@@ -27,12 +29,13 @@ public class UIMenu implements Serializable, BaseEntity{
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getDisplayName() {
+		return displayName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setDisplayName(String name) {
+		this.displayName = name;
 	}
+	@ManyToOne(optional=false)
 	public UIMenu getParent() {
 		return parent;
 	}
@@ -51,5 +54,11 @@ public class UIMenu implements Serializable, BaseEntity{
 	}
 	public void setChildern(List<UIMenu> childern) {
 		this.childern = childern;
+	}
+	public void setMenuId(String menuId) {
+		this.menuId = menuId;
+	}
+	public String getMenuId() {
+		return menuId;
 	}	
 }
