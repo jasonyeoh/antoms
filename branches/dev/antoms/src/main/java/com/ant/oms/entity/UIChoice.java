@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 @Entity
-@Table(uniqueConstraints={@UniqueConstraint(columnNames={"id","choice_id","choice_key", "locale"})})
+@Table(uniqueConstraints={@UniqueConstraint(columnNames={"choice_id","choice_key", "locale"})})
 public class UIChoice implements Serializable, BaseEntity {
 
 	/**
