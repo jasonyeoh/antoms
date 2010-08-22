@@ -46,6 +46,7 @@ public class UIChoice implements Serializable, BaseEntity {
 	public void setLocale(String locale) {
 		this.locale = locale;
 	}
+	@Column(name="choice_id")
 	public String getChoiceId() {
 		return choiceId;
 	}

@@ -2,9 +2,9 @@ package com.ant.oms.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
-import org.hibernate.annotations.Entity;
 
 @Entity
 public class Address implements Serializable, BaseEntity {

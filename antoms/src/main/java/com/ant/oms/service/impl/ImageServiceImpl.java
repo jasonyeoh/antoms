@@ -10,7 +10,7 @@ import com.ant.oms.dao.ImageDAO;
 import com.ant.oms.entity.Image;
 import com.ant.oms.service.ImageService;
 
-public class ImageServiceImpl implements ImageService{
+public class ImageServiceImpl extends BaseServiceImpl implements ImageService{
 	private ImageDAO dao;
 	@Override
 	public Image createFromPath(String name, String coverImage) {

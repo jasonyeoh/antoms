@@ -8,7 +8,7 @@ import com.ant.oms.entity.Catalog;
 import com.ant.oms.entity.Image;
 import com.ant.oms.service.CatalogService;
 
-public class CatalogServiceImpl implements CatalogService{
+public class CatalogServiceImpl extends BaseServiceImpl implements CatalogService{
 	CatalogDAO dao;
 	ImageServiceImpl is;
 	@Override

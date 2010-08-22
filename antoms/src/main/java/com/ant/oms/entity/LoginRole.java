@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 @Entity
 public class LoginRole implements Serializable, BaseEntity {
 	/**
@@ -20,12 +21,14 @@ public class LoginRole implements Serializable, BaseEntity {
 	public void setId(long id) {
 		this.id = id;
 	}
+	@OneToOne(optional=true)
 	public Login getLogin() {
 		return login;
 	}
 	public void setLogin(Login login) {
 		this.login = login;
 	}
+	@OneToOne(optional=true)
 	public Role getRole() {
 		return role;
 	}

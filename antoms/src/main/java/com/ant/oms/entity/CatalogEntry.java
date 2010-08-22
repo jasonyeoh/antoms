@@ -4,7 +4,9 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 @Entity
 public class CatalogEntry implements Serializable {
 	/**
@@ -49,10 +51,11 @@ public class CatalogEntry implements Serializable {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-	public void setCatalog(Catalog catalog) {
-		this.catalog = catalog;
-	}
+	@ManyToOne(optional=false, fetch=FetchType.LAZY)
 	public Catalog getCatalog() {
 		return catalog;
+	}
+	public void setCatalog(Catalog catalog) {
+		this.catalog = catalog;
 	}
 }
