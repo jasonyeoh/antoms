@@ -4,10 +4,11 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Service;
 
 import com.ant.oms.dao.UIChoiceDAO;
 import com.ant.oms.entity.UIChoice;
-
+@Service
 public class HibernateUIChoiceDAO extends HibernateBaseDAO<UIChoice> implements UIChoiceDAO {
 
 	@Override

@@ -20,7 +20,7 @@
 	<import resource="spring-config/hibernate.xml"/>
 	<import resource="spring-config/services.xml"/>
 	<import resource="spring-config/webmvc.xml"/>
-	<import resource="spring-config/resource.xml"/>
+	<import resource="spring-config/resources.xml"/>
 	
 
 

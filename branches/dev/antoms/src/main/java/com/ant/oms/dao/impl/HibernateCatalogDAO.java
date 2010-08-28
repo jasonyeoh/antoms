@@ -4,10 +4,11 @@ import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Service;
 
 import com.ant.oms.dao.CatalogDAO;
 import com.ant.oms.entity.Catalog;
-
+@Service
 public class HibernateCatalogDAO extends HibernateBaseDAO<Catalog> implements CatalogDAO {
 	@SuppressWarnings("unchecked")
 	@Override
