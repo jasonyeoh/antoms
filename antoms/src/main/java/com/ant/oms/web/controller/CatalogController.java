@@ -11,7 +11,7 @@ import com.ant.oms.service.CatalogService;
 import com.ant.oms.service.UIService;
 
 @Controller
-@RequestMapping("controller")
+@RequestMapping("catalog")
 public class CatalogController {
 	@Autowired
 	private CatalogService catalogService;

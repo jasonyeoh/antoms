@@ -1,10 +1,11 @@
 package com.ant.oms.dao.impl;
 
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Service;
 
 import com.ant.oms.dao.SettingDAO;
 import com.ant.oms.entity.Setting;
-
+@Service
 public class HibernateSettingDAO extends HibernateBaseDAO<Setting> implements SettingDAO{
 
 	@Override
