@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ant.oms.dao.UIChoiceDAO;
 import com.ant.oms.dao.UIMenuDAO;
@@ -13,6 +14,7 @@ import com.ant.oms.entity.UIChoice;
 import com.ant.oms.entity.UIMenu;
 import com.ant.oms.service.UIService;
 
+@Service
 public class UIServiceImpl extends BaseServiceImpl implements UIService {
 	@Autowired
 	UIChoiceDAO choiceDao;

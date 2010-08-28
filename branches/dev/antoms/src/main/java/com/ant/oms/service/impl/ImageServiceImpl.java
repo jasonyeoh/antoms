@@ -6,11 +6,15 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.ant.oms.dao.ImageDAO;
 import com.ant.oms.entity.Image;
 import com.ant.oms.service.ImageService;
-
+@Service
 public class ImageServiceImpl extends BaseServiceImpl implements ImageService{
+	@Autowired
 	private ImageDAO dao;
 	@Override
 	public Image createFromPath(String name, String coverImage) {
