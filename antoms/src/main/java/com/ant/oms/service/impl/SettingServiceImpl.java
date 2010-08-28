@@ -5,11 +5,12 @@ import java.util.Arrays;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONValue;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ant.oms.dao.SettingDAO;
 import com.ant.oms.entity.Setting;
 import com.ant.oms.service.SettingService;
-
+@Service
 public class SettingServiceImpl extends BaseServiceImpl implements SettingService{
 	
 	@Autowired

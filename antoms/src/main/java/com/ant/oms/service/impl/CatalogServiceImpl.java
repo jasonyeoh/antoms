@@ -3,13 +3,19 @@ package com.ant.oms.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.ant.oms.dao.CatalogDAO;
 import com.ant.oms.entity.Catalog;
 import com.ant.oms.entity.Image;
 import com.ant.oms.service.CatalogService;
-
+@Service
 public class CatalogServiceImpl extends BaseServiceImpl implements CatalogService{
+	@Autowired
 	CatalogDAO dao;
+	
+	@Autowired
 	ImageServiceImpl is;
 	@Override
 	public List<Catalog> getAll(){

@@ -10,12 +10,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.ant.oms.dao.BaseDAO;
 
 public abstract class HibernateBaseDAO<T> extends HibernateDaoSupport implements BaseDAO<T>{
+	
 	public Criteria createCriteria(Class<?> entityClass){
 		return s().createCriteria(entityClass);
 	}
@@ -24,6 +26,10 @@ public abstract class HibernateBaseDAO<T> extends HibernateDaoSupport implements
 	}
 	protected SessionFactory sf(){
 		return getSessionFactory();
+	}
+	@Autowired
+	public void setSf(SessionFactory sf){
+		setSessionFactory(sf);
 	}
 	protected Session s(){
 		return sf().openSession();
@@ -90,7 +96,7 @@ public abstract class HibernateBaseDAO<T> extends HibernateDaoSupport implements
 	}
 	@Override
 	public void deleteAllById(List<Serializable> ids) {
-		// TODO Auto-generated method stub
+		deleteAll(getAllById(ids));
 		
 	}
 	abstract protected Class<T> getEntityClass();
