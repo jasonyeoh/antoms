@@ -11,7 +11,7 @@ import com.ant.oms.service.CatalogService;
 import com.ant.oms.service.UIService;
 
 @Controller
-@RequestMapping("catalog")
+@RequestMapping("/catalog")
 public class CatalogController {
 	@Autowired
 	private CatalogService catalogService;
@@ -21,7 +21,7 @@ public class CatalogController {
 	public void setCatalogService(CatalogService catalogService) {
 		this.catalogService = catalogService;
 	}
-	@RequestMapping("list")
+	@RequestMapping({"/list","/index"})
 	public ModelAndView list(){
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("ui", uiService);
@@ -29,7 +29,7 @@ public class CatalogController {
 		mav.setViewName("catalog/list");
 		return mav;
 	}
-	@RequestMapping("new")
+	@RequestMapping("/new")
 	public ModelAndView create(){
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("ui", uiService);
@@ -37,7 +37,7 @@ public class CatalogController {
 		mav.setViewName("catalog/new");
 		return mav;
 	}
-	@RequestMapping("view/{id}")
+	@RequestMapping("/view/{id}")
 	public ModelAndView view(@RequestParam(value="id", defaultValue="0") long id ){
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("ui", uiService);
@@ -45,7 +45,7 @@ public class CatalogController {
 		mav.setViewName("catalog/view");
 		return mav;
 	}
-	@RequestMapping("view")
+	@RequestMapping("/view")
 	public ModelAndView processCreate(@RequestParam Catalog catalog){
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("ui", uiService);
