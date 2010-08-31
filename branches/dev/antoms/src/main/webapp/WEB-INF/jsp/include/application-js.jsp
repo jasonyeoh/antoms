@@ -1,3 +1,3 @@
-<%@ page language="java" contentType="text/javascript; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/javascript; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ include file="/js/application.js" %>
