@@ -1,0 +1,8 @@
+application: yogigdatatest
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /.*
+  script: org/rampuria/yogendra/gdatatest/app.py
