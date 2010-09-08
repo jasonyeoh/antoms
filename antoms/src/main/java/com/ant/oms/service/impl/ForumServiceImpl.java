@@ -3,6 +3,7 @@ package com.ant.oms.service.impl;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ant.oms.dao.ForumDAO;
 import com.ant.oms.dao.ForumPostDAO;
@@ -12,7 +13,7 @@ import com.ant.oms.entity.ForumPost;
 import com.ant.oms.entity.ForumThread;
 import com.ant.oms.service.ForumService;
 import com.ant.oms.service.UserService;
-
+@Service
 public class ForumServiceImpl implements ForumService{
 	@Autowired
 	private ForumDAO forumDAO;
