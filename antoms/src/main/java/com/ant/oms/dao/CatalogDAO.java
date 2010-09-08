@@ -1,9 +1,9 @@
 package com.ant.oms.dao;
 
-import java.util.List;
+import java.util.Collection;
 
 import com.ant.oms.entity.Catalog;
 
 public interface CatalogDAO extends BaseDAO<Catalog>{
-	public List<Catalog> getAllActive();
+	public Collection<Catalog> getAllActive();
 }

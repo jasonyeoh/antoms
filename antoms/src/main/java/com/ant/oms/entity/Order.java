@@ -1,6 +1,6 @@
 package com.ant.oms.entity;
 
-import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
 
@@ -13,7 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name="order_master")
-public class Order implements Serializable, BaseEntity{
+public class Order implements BaseEntity{
 	/**
 	 * 
 	 */
@@ -27,7 +27,7 @@ public class Order implements Serializable, BaseEntity{
 	private String deliveryLocation;
 	private Address deliveryAddress;
 	private String comment;
-	private Set<OrderItem> items;
+	private Collection<OrderItem> items;
 	private float totalAmount;
 	private Status status;
 
@@ -70,10 +70,10 @@ public class Order implements Serializable, BaseEntity{
 		this.comment = comment;
 	}
 	@OneToMany(mappedBy="parentOrder", fetch=FetchType.LAZY)
-	public Set<OrderItem> getItems() {
+	public Collection<OrderItem> getItems() {
 		return items;
 	}
-	public void setItems(Set<OrderItem> items) {
+	public void setItems(Collection<OrderItem> items) {
 		this.items = items;
 	}
 	public float getTotalAmount() {

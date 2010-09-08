@@ -13,7 +13,7 @@ import com.ant.oms.dao.ImageDAO;
 import com.ant.oms.entity.Image;
 import com.ant.oms.service.ImageService;
 @Service
-public class ImageServiceImpl extends BaseServiceImpl implements ImageService{
+public class ImageServiceImpl implements ImageService{
 	@Autowired
 	private ImageDAO dao;
 	@Override
@@ -28,7 +28,7 @@ public class ImageServiceImpl extends BaseServiceImpl implements ImageService{
 			fis.read(data, 0, (int) img.length());
 			image.setData(data);
 			image.setImageSize((int) img.length());
-			dao.save(image);
+			dao.saveNew(image);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			return null;
@@ -47,7 +47,7 @@ public class ImageServiceImpl extends BaseServiceImpl implements ImageService{
 		
 	}
 	public void save(Image image){
-		dao.save(image);
+		dao.saveNew(image);
 	}
 	
 

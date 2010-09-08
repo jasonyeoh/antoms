@@ -11,7 +11,7 @@ import com.ant.oms.dao.SettingDAO;
 import com.ant.oms.entity.Setting;
 import com.ant.oms.service.SettingService;
 @Service
-public class SettingServiceImpl extends BaseServiceImpl implements SettingService{
+public class SettingServiceImpl implements SettingService{
 	
 	@Autowired
 	private SettingDAO dao;
@@ -68,7 +68,7 @@ public class SettingServiceImpl extends BaseServiceImpl implements SettingServic
 		}else {
 			JSONArray.toJSONString(Arrays.asList(values));
 		}
-		dao.save(s);
+		dao.saveNew(s);
 		return s;
 	}
 

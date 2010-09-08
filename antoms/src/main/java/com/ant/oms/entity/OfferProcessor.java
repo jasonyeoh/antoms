@@ -1,7 +1,5 @@
 package com.ant.oms.entity;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -28,7 +26,7 @@ import com.ant.oms.util.OfferProcessorEngine;
  *
  */
 @Entity
-public class OfferProcessor implements Serializable, BaseEntity {
+public class OfferProcessor implements BaseEntity {
 	/**
 	 * 
 	 */

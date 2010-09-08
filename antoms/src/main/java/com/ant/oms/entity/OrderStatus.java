@@ -1,6 +1,5 @@
 package com.ant.oms.entity;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -8,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class OrderStatus implements Serializable, BaseEntity {
+public class OrderStatus implements  BaseEntity {
 	/**
 	 * 
 	 */

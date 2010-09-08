@@ -1,13 +1,11 @@
 package com.ant.oms.entity;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 
 @Entity
-public class Address implements Serializable, BaseEntity {
+public class Address implements BaseEntity {
 	/**
 	 * 
 	 */

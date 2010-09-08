@@ -1,5 +1,6 @@
 package com.ant.oms.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import com.ant.oms.entity.Catalog;
 import com.ant.oms.entity.Image;
 import com.ant.oms.service.CatalogService;
 @Service
-public class CatalogServiceImpl extends BaseServiceImpl implements CatalogService{
+public class CatalogServiceImpl implements CatalogService{
 	@Autowired
 	CatalogDAO dao;
 	
@@ -19,7 +20,7 @@ public class CatalogServiceImpl extends BaseServiceImpl implements CatalogServic
 	ImageServiceImpl is;
 	@Override
 	public List<Catalog> getAll(){
-		return dao.getAll();
+		return new ArrayList<Catalog>(dao.getAll());
 	}
 	@Override
 	public void createNew(String name, String description, String coverImage ){
@@ -30,11 +31,11 @@ public class CatalogServiceImpl extends BaseServiceImpl implements CatalogServic
 		c.setDescription(description);
 		c.setLaunchDate(new Date());
 		c.setName(name);
-		dao.save(c);
+		dao.saveNew(c);
 	}
 	@Override
 	public List<Catalog> getAllActive() {
-		return dao.getAllActive();
+		return new ArrayList<Catalog>(dao.getAllActive());
 	}
 	@Override
 	public Catalog get(long id) {
@@ -43,6 +44,6 @@ public class CatalogServiceImpl extends BaseServiceImpl implements CatalogServic
 	@Override
 	public void save(Catalog catalog) {
 		is.save(catalog.getCoverPage());
-		dao.save(catalog);
+		dao.saveNew(catalog);
 	}
 }
