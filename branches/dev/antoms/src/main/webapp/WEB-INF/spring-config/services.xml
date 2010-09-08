@@ -17,6 +17,6 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 	">
 
-	<context:component-scan base-package="com.ant.oms.service,com.ant.oms.service.impl"></context:component-scan>
+	<context:component-scan base-package="com.ant.oms.service"></context:component-scan>
 
 </beans>

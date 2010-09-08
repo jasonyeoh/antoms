@@ -1,6 +1,7 @@
 package com.ant.oms.service.impl;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +16,7 @@ import com.ant.oms.entity.UIMenu;
 import com.ant.oms.service.UIService;
 
 @Service
-public class UIServiceImpl extends BaseServiceImpl implements UIService {
+public class UIServiceImpl implements UIService {
 	@Autowired
 	UIChoiceDAO choiceDao;
 	@Autowired
@@ -28,13 +29,13 @@ public class UIServiceImpl extends BaseServiceImpl implements UIService {
 			c.setKey(k);
 			c.setLocale(locale);
 			c.setValue(values.get(k));
-			choiceDao.save(c);
+			choiceDao.saveNew(c);
 		}
 	}
 
 	@Override
 	public Map<String, String> getChoice(String choiceId, String locale) {
-		List<UIChoice> choices = choiceDao.getByChoiceId(choiceId, (locale == null)?UIChoiceDAO.DEFAULT_LOCALE:locale);
+		Collection<UIChoice> choices = choiceDao.getByChoiceId(choiceId, (locale == null)?UIChoiceDAO.DEFAULT_LOCALE:locale);
 		Map<String, String> cmap = new LinkedHashMap<String, String>();
 		for(UIChoice c : choices){
 			cmap.put(c.getKey(), c.getValue());
@@ -59,7 +60,7 @@ public class UIServiceImpl extends BaseServiceImpl implements UIService {
 		menu.setUrl(url);
 		menu.setParent(null);
 		menu.setMenuId(id.toLowerCase());
-		menuDao.save(menu);
+		menuDao.saveNew(menu);
 		List<UIMenu> entries = new ArrayList<UIMenu>();
 		for(String key:items.keySet()){
 			UIMenu menuEntry = new UIMenu();

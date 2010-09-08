@@ -1,7 +1,6 @@
 package com.ant.oms.entity;
 
-import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,7 +10,7 @@ import javax.persistence.OneToMany;
 
 
 @Entity
-public class UIMenu implements Serializable, BaseEntity{
+public class UIMenu implements  BaseEntity{
 	/**
 	 * 
 	 */
@@ -21,7 +20,7 @@ public class UIMenu implements Serializable, BaseEntity{
 	private String displayName;
 	private UIMenu parent;
 	private String url;
-	private List<UIMenu> childern;
+	private Collection<UIMenu> childern;
 	@Id
 	public long getId() {
 		return id;
@@ -49,10 +48,10 @@ public class UIMenu implements Serializable, BaseEntity{
 		this.url = url;
 	}
 	@OneToMany(mappedBy="parent", fetch=FetchType.LAZY)
-	public List<UIMenu> getChildern() {
+	public Collection<UIMenu> getChildern() {
 		return childern;
 	}
-	public void setChildern(List<UIMenu> childern) {
+	public void setChildern(Collection<UIMenu> childern) {
 		this.childern = childern;
 	}
 	public void setMenuId(String menuId) {

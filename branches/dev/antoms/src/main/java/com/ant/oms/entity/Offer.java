@@ -1,13 +1,12 @@
 package com.ant.oms.entity;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Offer implements Serializable, BaseEntity{
+public class Offer implements  BaseEntity{
 	/**
 	 * 
 	 */

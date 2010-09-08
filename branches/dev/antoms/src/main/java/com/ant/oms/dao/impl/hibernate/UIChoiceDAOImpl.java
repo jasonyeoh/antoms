@@ -1,4 +1,4 @@
-package com.ant.oms.dao.impl;
+package com.ant.oms.dao.impl.hibernate;
 
 import java.util.List;
 
@@ -8,8 +8,9 @@ import org.springframework.stereotype.Service;
 
 import com.ant.oms.dao.UIChoiceDAO;
 import com.ant.oms.entity.UIChoice;
+
 @Service
-public class HibernateUIChoiceDAO extends HibernateBaseDAO<UIChoice> implements UIChoiceDAO {
+public class UIChoiceDAOImpl extends BaseDAOImpl<UIChoice> implements UIChoiceDAO {
 
 	@Override
 	protected Class<UIChoice> getEntityClass() {
@@ -25,20 +26,23 @@ public class HibernateUIChoiceDAO extends HibernateBaseDAO<UIChoice> implements 
 	}
 
 	@Override
-	public void deleteChoice(String choiceId, String locale) {
+	public boolean deleteChoice(String choiceId, String locale) {
 		if(locale == null || locale.equals("")){
 			hql("delete from UIChoice where choiceId=:choiceId and local=:locale")
 			.setString("choiceId", choiceId)
 			.setString("locale", locale)
 			.executeUpdate();
+			return true;
 			//add(Restrictions.eq("choiceId", choiceId)).add(Restrictions.eq("locale", locale))
 		}
+		return false;
 			
 	}
 
 	@Override
-	public void deleteChoice(String choiceId) {
+	public boolean deleteChoice(String choiceId) {
 		hql("delete from UIChoice where choiceId=:choiceId").setString("choiceId", choiceId).executeUpdate();
+		return true;
 	}
 	
 	

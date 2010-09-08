@@ -1,7 +1,5 @@
 package com.ant.oms.entity;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,7 +7,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 @Entity
 @Table(uniqueConstraints={@UniqueConstraint(columnNames={"choice_id","choice_key", "locale"})})
-public class UIChoice implements Serializable, BaseEntity {
+public class UIChoice implements  BaseEntity {
 
 	/**
 	 * 

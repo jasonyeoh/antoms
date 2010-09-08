@@ -1,13 +1,11 @@
 package com.ant.oms.entity;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Inventory implements Serializable, BaseEntity{
+public class Inventory implements  BaseEntity{
 	/**
 	 * 
 	 */

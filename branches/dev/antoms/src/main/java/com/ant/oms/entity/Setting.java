@@ -1,7 +1,5 @@
 package com.ant.oms.entity;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,7 +8,7 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(uniqueConstraints=@UniqueConstraint(columnNames={"setting_key","setting_ns"}))
-public class Setting implements Serializable, BaseEntity{
+public class Setting implements  BaseEntity{
 	/**
 	 * 
 	 */

@@ -1,14 +1,17 @@
 package com.ant.oms.entity;
 
-import java.io.Serializable;
-import java.util.Set;
+import java.util.Collection;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
-public class Role implements Serializable , BaseEntity{
+public class Role implements  BaseEntity{
 	/**
 	 * 
 	 */
@@ -16,7 +19,7 @@ public class Role implements Serializable , BaseEntity{
 	private long id;
 	private String name;
 	private String description;
-	private Set<LoginRole> logins;
+	private Collection<Login> logins;
 	@Id
 	public long getId() {
 		return id;
@@ -24,9 +27,11 @@ public class Role implements Serializable , BaseEntity{
 	public void setId(long id) {
 		this.id = id;
 	}
+	@Column(name="role_name", unique=true)
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -36,11 +41,19 @@ public class Role implements Serializable , BaseEntity{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	@OneToMany(mappedBy="role")
-	public Set<LoginRole> getLogins() {
+	@ManyToMany(
+	        targetEntity=Login.class,
+	        cascade={CascadeType.PERSIST, CascadeType.MERGE}
+	    )
+	    @JoinTable(
+	        name="t_role_login",
+	        joinColumns=@JoinColumn(name="role_id"),
+	        inverseJoinColumns=@JoinColumn(name="login_id")
+	    )
+	public Collection<Login> getLogins() {
 		return logins;
 	}
-	public void setLogins(Set<LoginRole> logins) {
+	public void setLogins(Collection<Login> logins) {
 		this.logins = logins;
 	}
 	

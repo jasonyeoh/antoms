@@ -1,15 +1,14 @@
 package com.ant.oms.entity;
 
-import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 @Entity
-public class Catalog implements Serializable, BaseEntity{
+public class Catalog implements BaseEntity{
 	/**
 	 * 
 	 */
@@ -20,7 +19,7 @@ public class Catalog implements Serializable, BaseEntity{
 	private boolean active;
 	private String description;
 	private Image coverPage;
-	private Set<CatalogEntry> entries;
+	private Collection<CatalogEntry> entries;
 	@Id
 	public long getId() {
 		return id;
@@ -60,10 +59,10 @@ public class Catalog implements Serializable, BaseEntity{
 		this.coverPage = coverPage;
 	}
 	@OneToMany(mappedBy="catalog")
-	public Set<CatalogEntry> getEntries() {
+	public Collection<CatalogEntry> getEntries() {
 		return entries;
 	}
-	public void setEntries(Set<CatalogEntry> entries) {
+	public void setEntries(Collection<CatalogEntry> entries) {
 		this.entries = entries;
 	}
 	
