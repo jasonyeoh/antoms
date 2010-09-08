@@ -40,7 +40,6 @@
 				<value>com.ant.oms.entity.Image</value>
 				<value>com.ant.oms.entity.Inventory</value>
 				<value>com.ant.oms.entity.Login</value>
-				<value>com.ant.oms.entity.LoginRole</value>
 				<value>com.ant.oms.entity.Offer</value>
 				<value>com.ant.oms.entity.OfferProcessor</value>
 				<value>com.ant.oms.entity.Order</value>

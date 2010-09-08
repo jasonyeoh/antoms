@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><spring:message code="app.name" text="UNDEF"/></title>
+<title><spring:message code="app.name" /></title>
 </head>
 <body>
 <table>

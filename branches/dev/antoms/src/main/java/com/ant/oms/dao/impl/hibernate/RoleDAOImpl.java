@@ -3,10 +3,11 @@ package com.ant.oms.dao.impl.hibernate;
 import java.util.Collection;
 
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Service;
 
 import com.ant.oms.dao.RoleDAO;
 import com.ant.oms.entity.Role;
-
+@Service
 public class RoleDAOImpl extends BaseDAOImpl<Role> implements RoleDAO {
 	@Override
 	protected Class<Role> getEntityClass() {
