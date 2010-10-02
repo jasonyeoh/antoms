@@ -2,7 +2,6 @@ package com.ant.oms.dao;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.List;
 
 import com.ant.oms.entity.BaseEntity;
 
