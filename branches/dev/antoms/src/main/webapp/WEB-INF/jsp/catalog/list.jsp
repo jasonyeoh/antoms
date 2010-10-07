@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ include file="/WEB-INF/jsp/include/header.jsp"%>
+<%@ include file="/WEB-INF/jsp/include/common-tags.jsp" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><spring:message code="app.name" text="UNDEF"/></title>
+<title><spring:message code="app.name"/></title>
 </head>
 <body>
 <table>

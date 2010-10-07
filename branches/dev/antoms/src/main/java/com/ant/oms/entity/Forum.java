@@ -4,7 +4,9 @@ import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -20,6 +22,7 @@ public class Forum implements BaseEntity {
 	private String description;
 	private boolean active;
 	private boolean locked;
+	private Section section;
 	private Login owner;
 	private Collection<ForumThread> threads;
 	private Image icon;
@@ -75,5 +78,12 @@ public class Forum implements BaseEntity {
 	}
 	public void setIcon(Image icon) {
 		this.icon = icon;
+	}
+	@ManyToOne(fetch=FetchType.EAGER)
+	public Section getSection() {
+		return section;
+	}
+	public void setSection(Section section) {
+		this.section = section;
 	}
 }

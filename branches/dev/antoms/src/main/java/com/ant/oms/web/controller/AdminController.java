@@ -21,7 +21,7 @@ public class AdminController {
 	@RequestMapping("/main")
 	public ModelAndView mainPage(){
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("uiadmin/main");
+		mav.setViewName("admin/main");
 		mav.addObject("ui", uiservice);
 		return mav;
 	}

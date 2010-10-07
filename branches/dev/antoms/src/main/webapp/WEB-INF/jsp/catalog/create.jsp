@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@ include file="/WEB-INF/jsp/include/header.jsp" %>
+<%@ include file="/WEB-INF/jsp/include/common-tags.jsp"%>
 <html>
 <head>
 <script type="text/javascript">
